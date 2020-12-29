@@ -7,5 +7,5 @@ cask "dbxcli" do
   name "010 Editor"
   homepage "https://www.dropbox.com"
 
-  app "dxcli"
+  app "dbxcli-test"
 end
