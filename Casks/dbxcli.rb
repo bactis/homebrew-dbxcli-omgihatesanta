@@ -6,6 +6,5 @@ cask "dbxcli" do
   appcast "https://github.com/dropbox/dbxcli/"
   name "dbxcli"
   homepage "https://www.dropbox.com"
-  description "Dropbox command line client. This is unoffical dropbox brew repo. No support provided"
   app "dbxcli-test"
 end
