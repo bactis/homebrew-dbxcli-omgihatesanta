@@ -4,7 +4,7 @@ cask "dbxcli" do
 
   url "https://github.com/dropbox/dbxcli/releases/download/#{version}/dbxcli-darwin-amd64"
   appcast "https://github.com/dropbox/dbxcli/"
-  name "010 Editor"
+  name "dbxcli"
   homepage "https://www.dropbox.com"
 
   app "dbxcli-test"
