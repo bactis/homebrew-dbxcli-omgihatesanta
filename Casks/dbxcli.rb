@@ -22,10 +22,13 @@ cask "dbxcli" do
   # the following are actions performed while in the download dir
   #  ~/Library/Caches/Homebrew/downloads
   #  Should remove quartentine bit
-  preflight do
-      system_command "xattr", 
-                      args: ["-d", "#{staged_path}/dbxcli-darwin-amd64"]
-      set_permissions "#{staged_path}/dbxcli-darwin-amd64", '0777'
-  end
+  #preflight do
+  #    system_command "xattr", 
+  #                    args: ["-d", "#{staged_path}/dbxcli-darwin-amd64"]
+  #    set_permissions "#{staged_path}/dbxcli-darwin-amd64", '0777'
+  #end
 
+  def install
+    system "mv dbxcli-darwin-amd64 dbxcli"
+    bin.install "dbxcli"
 end
