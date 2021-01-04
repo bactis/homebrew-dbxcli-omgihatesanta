@@ -15,7 +15,7 @@ cask "dbxcli" do
   #binary "dbxcli-test"
   
   # this will force the binary into /brewprefix/Cellar
-  keg_only: This is a test
+  keg_only: "This is a test"
 
   # Removed, the symlink to rename it to dbxcli-test is getting permission errors
   binary "dbxcli-darwin-amd64", target: "dbxcli-test"
