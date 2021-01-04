@@ -15,10 +15,8 @@ cask "dbxcli" do
   #binary "dbxcli-test"
   
   # Removed, the symlink to rename it to dbxcli-test is getting permission errors
-  #binary "dbxcli-darwin-amd64", target: "dbxcli-test"
+  binary "dbxcli-darwin-amd64", target: "dbxcli-test"
 
-  #binary "dbxcli-darwin-amd64"
-  binary "dbxcli-darwin-amd64", target: "/opt/homebrew/bin/dbxcli-test"
 
 
   # the following are actions performed while in the download dir
