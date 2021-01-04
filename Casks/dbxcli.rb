@@ -6,5 +6,11 @@ cask "dbxcli" do
   appcast "https://github.com/dropbox/dbxcli/"
   name "dbxcli"
   homepage "https://www.dropbox.com"
-  app "dbxcli-test"
+
+  # Note that app is the exact binary name downloaded in the URL
+  # target: is used to rename
+  #app "dbxcli-darwin-amd64", target: "dbxcli-test"
+  
+  # Note not using app since this is a binary application
+  binary "dbxcli-test"
 end
