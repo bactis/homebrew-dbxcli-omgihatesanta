@@ -13,6 +13,11 @@ cask "dbxcli" do
   
   # Note not using app since this is a binary application
   #binary "dbxcli-test"
-  binary "dbxcli-darwin-amd64", target: "dbxcli-test"
+  
+  # Removed, the symlink to rename it to dbxcli-test is getting permission errors
+  #binary "dbxcli-darwin-amd64", target: "dbxcli-test"
+
+  binary "dbxcli-darwin-amd64"
+
 
 end
