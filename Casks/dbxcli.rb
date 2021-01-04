@@ -15,11 +15,15 @@ cask "dbxcli" do
   #binary "dbxcli-test"
   
   # this will force the binary into /brewprefix/Cellar
-
-  keg_only :This_is_a_test
-
+  #keg_only :This_is_a_test
+  # Doesnt work for casks
+  #
+  #
   # Removed, the symlink to rename it to dbxcli-test is getting permission errors
-  binary "dbxcli-darwin-amd64", target: "dbxcli-test"
+  #binary "dbxcli-darwin-amd64", target: "dbxcli-test"
+  # goes here so it works
+  binary "dbxcli-darwin-amd64", target: "#{HOMEBREW_PREFIX}/Cellars/dbxcli-test"
+
 
   # the following are actions performed while in the download dir
   #  ~/Library/Caches/Homebrew/downloads
