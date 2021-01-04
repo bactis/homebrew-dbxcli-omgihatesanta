@@ -12,5 +12,7 @@ cask "dbxcli" do
   #app "dbxcli-darwin-amd64", target: "dbxcli-test"
   
   # Note not using app since this is a binary application
-  binary "dbxcli-test"
+  #binary "dbxcli-test"
+  binary "dbxcli-darwin-amd64", target: "dbxcli-test"
+
 end
