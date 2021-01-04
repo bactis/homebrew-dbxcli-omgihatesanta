@@ -25,7 +25,7 @@ cask "dbxcli" do
   preflight do
       system_command "xattr", 
                       args: ["-d", "#{staged_path}/dbxcli-darwin-amd64"]
-      set_permissions "#{staged_path}/dbxcli-darwin-amd64", '0755'
+      set_permissions "#{staged_path}/dbxcli-darwin-amd64", '0777'
   end
 
 end
