@@ -19,5 +19,12 @@ cask "dbxcli" do
 
   binary "dbxcli-darwin-amd64"
 
+  # the following are actions performed while in the download dir
+  #  ~/Library/Caches/Homebrew/downloads
+  #  Should remove quartentine bit
+  preflight do
+      system_command "xattr", 
+                      args: ["-d", "#{staged_path}/dbxcli-darwin-amd64"]
+  end
 
 end
