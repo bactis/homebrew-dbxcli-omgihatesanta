@@ -31,4 +31,5 @@ cask "dbxcli" do
   def install
     system "mv dbxcli-darwin-amd64 dbxcli"
     bin.install "dbxcli"
+  end
 end
