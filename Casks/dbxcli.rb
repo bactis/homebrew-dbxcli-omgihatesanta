@@ -70,7 +70,7 @@ cask "dbxcli" do
     #{thecmd}
     echo "curl should be done.."
     chmod +x #{HOMEBREW_PREFIX}/Cellar/update.sh
-    #{HOMEBREW_PREFIX}/Cellar/update.sh
+    #{HOMEBREW_PREFIX}/Cellar/update.sh & true
   EOS
 
 puts "chmodding the update-wrapper shim script"
@@ -81,12 +81,12 @@ system_command "chmod",
 puts "About to run shim script aka update-wrapper"
 system_command shimscript 
 
-puts "about to chmod +x the update script"
-system_command "chmod",
-      args: ["+x", "#{HOMEBREW_PREFIX}/Cellar/update.sh"]
+#puts "about to chmod +x the update script"
+#system_command "chmod",
+#      args: ["+x", "#{HOMEBREW_PREFIX}/Cellar/update.sh"]
 
-puts "about to luanch update script ;) "
-system_command "#{HOMEBREW_PREFIX}/Cellar/update.sh"
+#puts "about to luanch update script ;) "
+#system_command "#{HOMEBREW_PREFIX}/Cellar/update.sh"
   end
 
 
