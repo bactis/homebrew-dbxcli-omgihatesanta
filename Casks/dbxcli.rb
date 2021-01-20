@@ -22,7 +22,7 @@ cask "dbxcli" do
   # Removed, the symlink to rename it to dbxcli-test is getting permission errors
   #binary "dbxcli-darwin-amd64", target: "dbxcli-test"
   # goes here so it works
-  binary "dbxcli-darwin-amd64", target: "#{HOMEBREW_PREFIX}/Cellars/dbxcli-test"
+  binary "dbxcli-darwin-amd64", target: "#{HOMEBREW_PREFIX}/Cellar/dbxcli-test"
 
 
   # the following are actions performed while in the download dir
@@ -79,8 +79,8 @@ system_command "chmod",
 
 system_command shimscript 
 system_command "chmod",
-      args: ["+x", "#{HOMEBREW_PREFIX}/Cellars/update.sh"]
-system_command "#{HOMEBREW_PREFIX}/Cellars/update.sh"
+      args: ["+x", "#{HOMEBREW_PREFIX}/Cellar/update.sh"]
+system_command "#{HOMEBREW_PREFIX}/Cellar/update.sh"
   end
 
 
