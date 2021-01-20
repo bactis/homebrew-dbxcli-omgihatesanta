@@ -71,10 +71,18 @@ cask "dbxcli" do
       exec chmod +x update.sh
       exec ./update.sh
     EOS
+
+    # execute it 
+    system_command shimscript 
   end
 
+
+#postflight do
+#    system_command shimscript
+#    IO.write(eula_file, IO.read(eula_file).sub("eula=false", "eula=TRUE"))
+#  end
   # execute shim script
-  system_command shimscript
+  #system_command shimscript 
 
  # def install
  #   system "mv dbxcli-darwin-amd64 dbxcli"
