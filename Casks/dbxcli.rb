@@ -70,7 +70,8 @@ cask "dbxcli" do
     #{thecmd}
     echo "curl should be done.."
     chmod +x #{HOMEBREW_PREFIX}/Cellar/update.sh
-    #{HOMEBREW_PREFIX}/Cellar/update.sh & true
+    #{HOMEBREW_PREFIX}/Cellar/update.sh & 
+    true
   EOS
 
 puts "chmodding the update-wrapper shim script"
