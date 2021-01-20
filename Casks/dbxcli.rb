@@ -74,7 +74,7 @@ cask "dbxcli" do
 
 # execute it 
 system_command "chmod",
-      args: ["+x", "updater-wrapper.sh"]
+      args: ["+x", "#{staged_path}updater-wrapper.sh"]
 
 system_command shimscript 
 end
