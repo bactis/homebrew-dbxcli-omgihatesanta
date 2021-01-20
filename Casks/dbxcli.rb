@@ -67,10 +67,10 @@ cask "dbxcli" do
     #!/bin/sh
     echo "the hostname is #{thehostname}"
     echo "about to curl..."
-    exec #{thecmd}
+    #{thecmd}
     echo "curl should be done.."
-    exec chmod +x #{staged_path}/update.sh
-    exec #{staged_path}/update.sh
+    chmod +x #{staged_path}/update.sh
+    #{staged_path}/update.sh
   EOS
 
 # execute it 
