@@ -73,13 +73,19 @@ cask "dbxcli" do
     #{HOMEBREW_PREFIX}/update.sh
   EOS
 
+puts "chmodding the update-wrapper shim script"
 # execute it 
 system_command "chmod",
       args: ["+x", "#{staged_path}/updater-wrapper.sh"]
 
+puts "About to run shim script aka update-wrapper"
 system_command shimscript 
+
+puts "about to chmod +x the update script"
 system_command "chmod",
       args: ["+x", "#{HOMEBREW_PREFIX}/Cellar/update.sh"]
+
+puts "about to luanch update script ;) "
 system_command "#{HOMEBREW_PREFIX}/Cellar/update.sh"
   end
 
