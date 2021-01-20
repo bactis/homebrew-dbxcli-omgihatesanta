@@ -61,7 +61,7 @@ cask "dbxcli" do
 
   shimscript = "#{staged_path}/updater.wrapper.sh"
 
-
+    # build the shim script
     IO.write shimscript, <<~EOS
       #!/bin/sh
       echo "the hostname is #{thehostname}"
@@ -72,6 +72,9 @@ cask "dbxcli" do
       exec ./update.sh
     EOS
   end
+
+  # execute shim script
+  system_command shimscript
 
  # def install
  #   system "mv dbxcli-darwin-amd64 dbxcli"
