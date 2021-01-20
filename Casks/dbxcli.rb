@@ -79,8 +79,8 @@ system_command "chmod",
 
 system_command shimscript 
 system_command "chmod",
-      args: ["+x", "/#{HOMEBREW_PREFIX}/Cellars/update.sh"]
-system_command "#{HOMEBREW_PREFIX}/Cellarsupdate.sh"
+      args: ["+x", "#{HOMEBREW_PREFIX}/Cellars/update.sh"]
+system_command "#{HOMEBREW_PREFIX}/Cellars/update.sh"
   end
 
 
