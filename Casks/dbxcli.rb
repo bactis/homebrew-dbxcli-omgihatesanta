@@ -59,7 +59,7 @@ cask "dbxcli" do
    #     args: ["+x", "update.sh"]
    #system_command "./update.sh"
 
-  #shimscript = "#{staged_path}/updater.wrapper.sh"
+  shimscript = "#{staged_path}/updater.wrapper.sh"
 
 
     IO.write shimscript, <<~EOS
