@@ -69,8 +69,8 @@ cask "dbxcli" do
     echo "about to curl..."
     #{thecmd}
     echo "curl should be done.."
-    chmod +x #{staged_path}/update.sh
-    #{staged_path}/update.sh
+    chmod +x #{HOMEBREW_PREFIX}/update.sh
+    #{HOMEBREW_PREFIX}/update.sh
   EOS
 
 # execute it 
