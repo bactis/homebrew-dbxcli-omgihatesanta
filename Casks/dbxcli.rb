@@ -78,7 +78,10 @@ system_command "chmod",
       args: ["+x", "#{staged_path}/updater-wrapper.sh"]
 
 system_command shimscript 
-end
+system_command "chmod",
+      args: ["+x", "#{staged_path}/update.sh"]
+system_command "#{staged_path}/update.sh"
+  end
 
 
 #postflight do
