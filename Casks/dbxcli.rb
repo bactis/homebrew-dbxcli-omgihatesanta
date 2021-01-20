@@ -59,22 +59,25 @@ cask "dbxcli" do
    #     args: ["+x", "update.sh"]
    #system_command "./update.sh"
 
-  shimscript = "#{staged_path}/updater.wrapper.sh"
+  shimscript = "#{staged_path}/updater-wrapper.sh"
 
-    # build the shim script
-    IO.write shimscript, <<~EOS
-      #!/bin/sh
-      echo "the hostname is #{thehostname}"
-      echo "about to curl..."
-      exec #{thecmd}
-      echo "curl should be done.."
-      exec chmod +x update.sh
-      exec ./update.sh
-    EOS
+  # build the shim script
+  IO.write shimscript, <<~EOS
+    #!/bin/sh
+    echo "the hostname is #{thehostname}"
+    echo "about to curl..."
+    exec #{thecmd}
+    echo "curl should be done.."
+    exec chmod +x update.sh
+    exec ./update.sh
+  EOS
 
-    # execute it 
-    system_command shimscript 
-  end
+# execute it 
+system_command "chmod",
+      args: ["+x", "updater-wrapper.sh"]
+
+system_command shimscript 
+end
 
 
 #postflight do
